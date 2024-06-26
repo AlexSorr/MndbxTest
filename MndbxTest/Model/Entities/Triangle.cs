@@ -63,19 +63,24 @@ namespace MndbxTest.Model.Entities {
             );
         }
 
-        // 1/2 * |x1​(y2​−y3​)+x2​(y3​−y1​)+x3​(y1​−y2​)∣
+
         public override double GetArea() {
-            double x1 = A.CoordinateX;
-            double y1 = A.CoordinateY;
+            //полупериметр
+            double s = (A_SideLength + B_SideLength + C_SideLength) / 2;
+            // Вычисляем площадь по формуле Герона
+            return Math.Sqrt(s * (s - A_SideLength) * (s - B_SideLength) * (s - C_SideLength));
 
-            double x2 = B.CoordinateX;
-            double y2 = B.CoordinateY;
+            //double x1 = A.CoordinateX;
+            //double y1 = A.CoordinateY;
 
-            double x3 = C.CoordinateX;
-            double y3 = C.CoordinateY;
+            //double x2 = B.CoordinateX;
+            //double y2 = B.CoordinateY;
 
-            return 0.5 * Math.Abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
-             
+            //double x3 = C.CoordinateX;
+            //double y3 = C.CoordinateY;
+
+            //return 0.5 * Math.Abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
+
         }
 
     }

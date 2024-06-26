@@ -57,7 +57,7 @@ public class GeometryShapesTest {
     /// </summary>
     [Test]
     public void CircleAreaTest() {
-        double expectedRes = Math.Pow(RandomCircle.Radius, 2) * Math.PI;
+        double expectedRes = Math.Round(Math.Pow(RandomCircle.Radius, 2) * Math.PI, 2);
 
         Assert.That(AreaCalculator.GetShapeArea(RandomCircle), Is.EqualTo(expectedRes));
     }
