@@ -32,11 +32,10 @@ namespace MndbxTest.Model.Base {
         public static bool operator ==(Point firstPoint, Point secondPoint) {
             if (firstPoint is null || secondPoint is null)
                 return false;
-
             return firstPoint.Equals(secondPoint);
         }
 
-        public static bool operator !=(Point firstPoint, Point secondPoint) => !firstPoint.Equals(secondPoint);
+        public static bool operator !=(Point firstPoint, Point secondPoint) => !(firstPoint == secondPoint);
 
         public override int GetHashCode() => CoordinateX ^ CoordinateY;
 
